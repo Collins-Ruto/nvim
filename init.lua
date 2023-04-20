@@ -44,6 +44,18 @@ inoremap <c-r> <c-v>
 vim.api.nvim_set_keymap('n', '<End>', '$', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<End>', '<Esc>$a', { noremap = true, silent = true })
 
+-- Create the custom command
+function _G.create_file()
+  local filename = vim.fn.input("Enter file name: ")
+  if filename ~= "" then
+        local path = vim.fn.expand("%:p:h")
+      local filepath = path .. "/" .. filename
+      vim.cmd("silent! execute 'write !touch " .. filepath .. "'")
+      vim.cmd("edit " .. filepath)
+    end
+end
+
+vim.cmd([[command! CreateFile lua create_file()]])
 
 pcall(require, "custom")
 

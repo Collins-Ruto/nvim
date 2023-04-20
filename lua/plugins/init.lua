@@ -14,6 +14,13 @@ local plugins = {
 	  end,
   },
 
+  ["Bryley/neoai.nvim"] = {
+      requires = { "MunifTanjim/nui.nvim" },
+      config = function()
+    -- configuration code goes here
+   end,
+  },
+
   -- custom plugins end
 
   ["wbthomason/packer.nvim"] = {
